@@ -3,7 +3,7 @@ A default starter app with TONS of useful stuff in it
 
 Check out the project
 
-Save it as NAMED 
+Save it NAMED as
 ```
    Default Desktop Project.xojo_binary_project
 ```
