@@ -46,7 +46,7 @@ Protected Class FontAndColorTheme
 		  Strings.append "<?xml version=""1.0"" encoding=""UTF-8""?>"
 		  Strings.append "<Theme name=""" + Name + """>"
 		  
-		  Strings.append MakeEntry( nameOf(Members.CodeEditorFont), Str(CodeEditorFont) )
+		  Strings.append MakeEntry( nameOf(Members.CodeEditorFont), CodeEditorFont )
 		  Strings.append MakeEntry( nameOf(Members.CodeEditorFontSize), Str(CodeEditorFontSize) )
 		  
 		  Strings.append MakeEntry( nameOf(Members.CodeEditorKeywordsColor), Str(CodeEditorKeywordsColor) )
