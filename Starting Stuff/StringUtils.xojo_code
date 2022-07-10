@@ -1518,22 +1518,31 @@ Protected Module StringUtils
 		  // Concatenate a string to itself 'repeatCount' times.
 		  // Example: Repeat("spam ", 5) = "spam spam spam spam spam ".
 		  
-		  dim stringLength as Integer
-		  stringLength = LenB(s)
-		  If stringLength = 0 or repeatCount < 1 then
-		    Return ""
-		  End if
+		  #Pragma disablebackgroundTasks
 		  
-		  dim m as MemoryBlock
-		  m = new MemoryBlock(stringLength * repeatCount)
+		  If repeatCount <= 0 Then Return ""
+		  If repeatCount = 1 Then Return s
 		  
-		  dim i, maxi as Integer
-		  maxi = (repeatCount - 1) * stringLength
-		  For i = 0 to maxi step stringLength
-		    m.StringValue(i, stringLength) = s
-		  Next
+		  // Implementation note: normally, you don't want to use string concatenation
+		  // for something like this, since that creates a new string on each operation.
+		  // But in this case, we can double the size of the string on iteration, which
+		  // quickly reduces the overhead of concatenation to insignificance.  This method
+		  // is faster than any other we've found (short of declares, which were only
+		  // about 2X faster and were quite platform-specific).
 		  
-		  Return DefineEncoding(m.StringValue(0, m.Size), s.Encoding)
+		  Dim desiredLenB As Integer = LenB(s) * repeatCount
+		  Dim output As String = s
+		  Dim cutoff As Integer = (desiredLenB+1)\2
+		  Dim curLenB As Integer = LenB(output)
+		  
+		  While curLenB < cutoff
+		    output = output + output
+		    curLenB = curLenB + curLenB
+		  Wend
+		  
+		  output = output + LeftB(output, desiredLenB - curLenB)
+		  Return output
+		  
 		End Function
 	#tag EndMethod
 

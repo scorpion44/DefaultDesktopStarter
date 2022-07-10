@@ -65,7 +65,7 @@ Protected Module Preferences
 		      Dim initial As Boolean = True
 		      m_PrefsImplementation.WriteBoolean(key, initial)
 		      Dim result As Boolean = m_PrefsImplementation.ReadBoolean(key)
-		      debug.Assert result = initial, CurrentMethodName + key + " did not match"
+		      debug.Assert result = initial, CurrentMethodName + " " + key + " did not match"
 		      If m_PrefsImplementation.HasKey(key) Then
 		        m_PrefsImplementation.Remove(key)
 		      Else
@@ -78,7 +78,7 @@ Protected Module Preferences
 		      Dim initial As Color = &c12345678
 		      m_PrefsImplementation.WriteColor(key, initial)
 		      Dim result As Color = m_PrefsImplementation.ReadColor(key)
-		      debug.Assert result = initial, CurrentMethodName + key + " did not match"
+		      debug.Assert result = initial, CurrentMethodName  + " " + key + " did not match"
 		      If m_PrefsImplementation.HasKey(key) Then
 		        m_PrefsImplementation.Remove(key)
 		      Else
@@ -92,7 +92,7 @@ Protected Module Preferences
 		      m_PrefsImplementation.WriteDate(key, initial )
 		      Dim result As Date = m_PrefsImplementation.ReadDate(key)
 		      // object comparison so have to compare total sedons or something else
-		      debug.Assert result.TotalSeconds = initial.TotalSeconds, CurrentMethodName + key + " did not match"
+		      debug.Assert result.TotalSeconds = initial.TotalSeconds, CurrentMethodName  + " " + key + " did not match wrote " + initial.SQLDateTime + " got " + result.SQLDateTime
 		      If m_PrefsImplementation.HasKey(key) Then
 		        m_PrefsImplementation.Remove(key)
 		      Else
@@ -105,7 +105,7 @@ Protected Module Preferences
 		      Dim initial As Double = 12.345
 		      m_PrefsImplementation.WriteDouble(key, initial )
 		      Dim result As Double = m_PrefsImplementation.ReadDouble(key)
-		      debug.Assert result = initial, CurrentMethodName + key + " did not match"
+		      debug.Assert result = initial, CurrentMethodName  + " " + key + " did not match"
 		      If m_PrefsImplementation.HasKey(key) Then
 		        m_PrefsImplementation.Remove(key)
 		      Else
@@ -118,7 +118,7 @@ Protected Module Preferences
 		      Dim initial As Integer = 838381
 		      m_PrefsImplementation.WriteInteger(key, initial )
 		      Dim result As Integer = m_PrefsImplementation.ReadInteger(key)
-		      debug.Assert result = initial, CurrentMethodName + key + " did not match"
+		      debug.Assert result = initial, CurrentMethodName  + " " + key + " did not match"
 		      If m_PrefsImplementation.HasKey(key) Then
 		        m_PrefsImplementation.Remove(key)
 		      Else
@@ -131,7 +131,7 @@ Protected Module Preferences
 		      Dim initial As String = "this is a test of the emergncy ... never mind" 
 		      m_PrefsImplementation.WriteString(key, initial )
 		      Dim result As String = m_PrefsImplementation.ReadString(key)
-		      debug.Assert result = initial, CurrentMethodName + key + " did not match"
+		      debug.Assert result = initial, CurrentMethodName  + " " + key + " did not match"
 		      If m_PrefsImplementation.HasKey(key) Then
 		        m_PrefsImplementation.Remove(key)
 		      Else
@@ -145,7 +145,7 @@ Protected Module Preferences
 		      m_PrefsImplementation.WriteStringArray(key, initial )
 		      Dim result() As String = m_PrefsImplementation.ReadStringArray(key)
 		      // in this case we need to compare ARRAYS
-		      debug.Assert result.Equals(initial), CurrentMethodName + key + " did not match"
+		      debug.Assert result.Equals(initial), CurrentMethodName  + " " + key + " did not match"
 		      If m_PrefsImplementation.HasKey(key) Then
 		        m_PrefsImplementation.Remove(key)
 		      Else
