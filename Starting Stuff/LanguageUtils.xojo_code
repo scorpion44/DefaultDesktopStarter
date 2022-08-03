@@ -10,7 +10,7 @@ Protected Module LanguageUtils
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function BlockCloser(openingSrc As String) As String
 		  // Find the source that closes the given opening.
 		  
@@ -63,7 +63,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function BlockPairMatches(aboveSrc As String, belowSrc As String) As Boolean
 		  // Return whether the two source lines form a block pair,
 		  // e.g. If/Else, If/End If, Else/End if, For/Next, etc.
@@ -125,7 +125,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function CommentStartPos(source As String) As Integer
 		  // Return the byte offset of the start of the comment token for
 		  // the given source line, or 0 if there is no comment.
@@ -152,7 +152,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function CrackClassDecl(content as string, byref scope as string, byref className as string) As boolean
 		  #Pragma unused content
 		  #Pragma unused scope
@@ -220,7 +220,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function CrackConstDeclaration(content as string, byref scope as string, byref constName as string, byref type as string, byref optionalDefault as string) As Boolean
 		  #If debugBuild
 		    Const debugThis = False
@@ -451,7 +451,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function CrackEventDeclaration(content as string, byref attrs as string, byref scope as string, byref subFunc as string, byref methodName as string, byref params as string, byref returntype as string) As Boolean
 		  #If debugBuild
 		    Const debugThis = false
@@ -726,7 +726,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function CrackMethodDeclaration(content as string, byref attrs as string, byref scope as string, byref subFunc as string, byref methodName as string, byref params as string, byref returntype as string) As Boolean
 		  #If debugBuild
 		    Const debugThis = false
@@ -1055,7 +1055,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function CrackParams(paramString as String) As LanguageUtils.LocalVariable()
 		  ' params:
 		  '    /* empty String */          
@@ -1119,7 +1119,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function CrackPropertyDeclaration(content as string, byref isShared as boolean, byref scope as string, byref propName as string, byref isNew as boolean, byref type as string, byref optionalDefault as string) As Boolean
 		  #If debugBuild
 		    Const debugThis = False
@@ -1418,7 +1418,7 @@ Protected Module LanguageUtils
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function EndsInComment(source As String) As Boolean
 		  // Return whether the given line of source code ends in a comment.
 		  
@@ -1427,7 +1427,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function EndsInLineContinuation(source As String) As Boolean
 		  // Return whether the given line ends in a line-continuation token ("_"),
 		  // possibly followed by a comment.  (If so, then the next line is a
@@ -1463,7 +1463,7 @@ Protected Module LanguageUtils
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function Expect(expected() as string, tokens() as string, byref result as string) As boolean
 		  // sees if tokens(0) is in the list of expected tokens
 		  // if so it sets result to that token and returns true
@@ -1493,7 +1493,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function FindAnyInStr(startPos As Integer, source As String, findSet As String) As Integer
 		  // This is like InStr, except that instead of searching for just a single
 		  // character, we search for any character in a set.
@@ -1514,7 +1514,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function FindOpeningParen(source As String, closePosB As Integer) As Integer
 		  // Find the opening parenthesis that matches the one at closePosB
 		  // in source.  Return its 1-based byte offset, or 0 if not found.
@@ -1543,7 +1543,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Sub FindVarDeclarations(sourceLine As String, lineNum As Integer, outVars() As LocalVariable)
 		  // Find variable declarations in the given line.
 		  // Append them to outVars.
@@ -1756,7 +1756,7 @@ Protected Module LanguageUtils
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function FirstToken(source As String) As String
 		  // Return the first token of the given source.
 		  
@@ -1765,7 +1765,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function IdentifierFromText(text As String) As String
 		  // Given some text like "Cool Stuff...", make a legal RB
 		  // identifier like "CoolStuff".  In other words, strip out
@@ -1788,7 +1788,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function IsBaseType(token As String) As Boolean
 		  // Return whether the given token is one of our base types.
 		  Return token = "Auto" Or _
@@ -1808,7 +1808,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function IsBlockStart(previousLineText as string, byref blockEnder as string) As boolean
 		  blockEnder = BlockCloser(previousLineText)
 		  If blockEnder <> "" Then 
@@ -1831,7 +1831,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function IsBoolean(token as String) As Boolean
 		  // Check to see whether the token is a boolean literal
 		  
@@ -1842,7 +1842,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function IsColor(token as String) As Boolean
 		  // Check to see whether the token is a color literal
 		  
@@ -1858,7 +1858,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function IsComment(token As String) As Boolean
 		  // Return whether the given token is a comment.
 		  
@@ -1877,7 +1877,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function IsDigit(c As String) As Boolean
 		  // Return whether the first character of c is a digit (0 - 9).
 		  
@@ -1888,7 +1888,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function IsEndOfFunctionLine(line as string) As boolean
 		  // END FUNCTION (rem // or ') nothing else
 		  
@@ -1925,7 +1925,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function IsEndOfSubLine(line as string) As boolean
 		  // END SUB (rem // or ') nothing else
 		  
@@ -1962,7 +1962,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function IsFunctionLine(line as String) As Boolean
 		  Dim attrs As String
 		  Dim scope As String
@@ -1981,7 +1981,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function IsHexNumber(value as string) As boolean
 		  dim mb as memoryblock = value
 		  
@@ -2002,7 +2002,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function IsIdentifier(token As String) As Boolean
 		  // Return whether the given identifier might be an identifier
 		  // rather than an operator or keyword.
@@ -2031,7 +2031,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function IsInStringLiteral(source As String, startPosB As Integer, lengthB As Integer) As Boolean
 		  // Return whether the given section of 'source' is within a string literal.
 		  // (Note: the quotation marks themselves are not counted as being within the literal.)
@@ -2076,7 +2076,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function IsInteger(token as String) As Boolean
 		  // Check to see whether the token is numeric first
 		  If Not IsNumeric( token ) Then 
@@ -2094,7 +2094,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function IsRealNumber(token as String) As Boolean
 		  // First, check to see if the token is numeric
 		  If Not IsNumeric( token ) Then 
@@ -2106,7 +2106,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function IsScopeToken(token as string) As Boolean
 		  If token = kScopeGlobal Or _
 		    token = kScopePrivate Or _
@@ -2120,7 +2120,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function IsStringLiteral(token as string) As boolean
 		  // if left = " and right = "
 		  // and tehre are only doubled up ones in between
@@ -2141,7 +2141,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function IsSubLine(line as String) As Boolean
 		  Dim attrs As String
 		  Dim scope As String
@@ -2160,7 +2160,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function IsSubOrFunctionStart(thisLine As String) As Boolean
 		  // we are if the line is "Public Sub" and no extra chars
 		  // we are not if the line is "Public Substitute"
@@ -2201,7 +2201,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function IsVarDeclarationLine(line as String) As boolean
 		  // if the line only has 3 chars tand starts with DIM then it is
 		  
@@ -2216,7 +2216,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function IsWhitespace(c As String) As Boolean
 		  // Return whether the first character of c is a whitespace character.
 		  
@@ -2225,7 +2225,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function KeywordDict() As Dictionary
 		  // Return a dictionary containing all the RB keywords as keys
 		  // (and nothing useful as values).
@@ -2256,7 +2256,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function LineContinuationPoint(source As String) As Integer
 		  // Return the position of the line-continuation token ("_").
 		  // If this line doesn't end in continuation, then return 0.
@@ -2313,7 +2313,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function MakeSignatureFromElements(name as string, params() as LanguageUtils.LocalVariable, returnType as String) As string
 		  
 		  // Return a string that is the signature
@@ -2350,7 +2350,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function MakeSignatureFromElements(name as string, params as string, returnType as String) As string
 		  
 		  // Return a string that is the signature
@@ -2376,7 +2376,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function NeedsMatchAbove(sourceLine As String) As Boolean
 		  Dim firstWord As String
 		  firstWord = FirstToken( sourceLine )
@@ -2388,7 +2388,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function NeedsMatchBelow(sourceLine As String) As Boolean
 		  Dim firstWord As String
 		  firstWord = FirstToken( sourceLine )
@@ -2437,7 +2437,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function NextToken(source As String, startPos As Integer) As String
 		  // Get the next token in the given source code, starting at
 		  // the given char offset (as in Mid, first byte = 1).
@@ -2529,7 +2529,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Sub RunUnitTests()
 		  // Unit-test this module.
 		  
@@ -2567,7 +2567,7 @@ Protected Module LanguageUtils
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function ScopeFromFlags(flags as integer) As LanguageUtils.Scope
 		  // may raise an UnsupportedOperationException if passed an invalid integer value for scope
 		  
@@ -2595,7 +2595,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function ScopeFromFlags(flagsString as string) As LanguageUtils.Scope
 		  // may raise an UnsupportedOperationException if passed an invalid integer value for scope
 		  
@@ -2623,7 +2623,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function ScopeFromString(scopestring as string) As LanguageUtils.Scope
 		  // may raise an UnsupportedOperationException if passed an invalid integer value for scope
 		  
@@ -2649,7 +2649,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function StandardizeComment(comment as String) As string
 		  
 		  Dim start As Integer = LanguageUtils.CommentStartPos(comment)
@@ -2688,7 +2688,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function StringFromScope(scope as LanguageUtils.Scope) As string
 		  // may raise an UnsupportedOperationException if passed an invalid integer value for scope
 		  
@@ -2714,7 +2714,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function TokenizeLine(sourceLine As String, includeWhitespace As Boolean = true) As String()
 		  // Break the given line up into tokens.
 		  // If includeWhitespace = true, then include whitespace as well,
@@ -2742,7 +2742,7 @@ Protected Module LanguageUtils
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h1, CompatibilityFlags = TargetHasGUI
+	#tag Method, Flags = &h21, CompatibilityFlags = TargetHasGUI
 		Protected Function TokenizeSource(source As String, includeWhitespace As Boolean = true) As String()
 		  // Break the source up into multiple lines.  Then tokenize each line
 		  
@@ -5147,7 +5147,7 @@ Protected Module LanguageUtils
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h1
+	#tag Method, Flags = &h21
 		Protected Function UnStringLiteral(token as string) As string
 		  // take a string literal like 
 		  //    "123" and return 123
